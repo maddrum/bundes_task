@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block standings_active %}class="active"{% endblock %}
+
+{% block content %}
+    <div id="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb">
+                <li><a href="{% url 'index_page' %}">Home</a></li>
+                <li>{% trans 'Standings' %}</li>
+            </div>
+        </div>
+    </div>
+    <div class="aboutus">
+        <div class="container">
+            <h3>{% trans 'Standings' %}</h3>
+            <hr>
+            <div class="col-md12 fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+
+                <div class="table-responsive" style="color: black">
+                    <table class="table table-borderless" style="vertical-align: middle;">
+                        <thead class="text-center">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>{% trans 'Team' %}</th>
+                            <th>{% trans 'Wins' %}</th>
+                            <th>{% trans 'Draws' %}</th>
+                            <th>{% trans 'Loses' %}</th>
+                            <th>{% trans 'Points' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in teamstandings_list %}
+                            <tr>
+                                <td>
+                                    <h4>
+                                        {{ forloop.counter }}
+                                    </h4>
+                                </td>
+                                <td width="10%">
+                                    <h4>
+                                        <img src="{{ row.team.team_logo }}" class="img-responsive"
+                                             style="max-height: 50px; max-width: 50px">
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4>
+                                        {{ row.team.team_name }}
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4>
+                                        {{ row.wins }}
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4>
+                                        {{ row.draws }}
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4>
+                                        {{ row.loses }}
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4>
+                                        {{ row.points }}
+                                    </h4>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-
+{% block home_active %}class="active"{% endblock %}
 {% block content %}
-
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
             <div class="carousel-inner">
@@ -12,13 +11,13 @@
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h2 class="animation animated-item-1">UBER <span>{% trans 'STASNDINGS' %}</span>
+                                    <h2 class="animation animated-item-1">UBER <span>{% trans 'STANDINGS' %}</span>
                                     </h2>
                                     <h3 class="animation animated-item-2" style="color: greenyellow">
-                                        {% trans 'Where everything is ' %} alles gut!
+                                        Das Runde muss ins Eckige
                                     </h3>
                                     <a class="btn-slide animation animated-item-3"
-                                       href="#">{% trans 'Check Standings' %}</a>
+                                       href="{% url 'bundesinfo:standings' %}">{% trans 'Check Standings' %}</a>
                                 </div>
                             </div>
 

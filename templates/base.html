@@ -36,8 +36,17 @@
                 <div class="navbar-collapse collapse">
                     <div class="menu">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"><a href="{% url 'index_page' %}" class="active">Home</a></li>
-                            <li role="presentation"><a href="">{% trans 'Standings' %}</a></li>
+                            <li role="presentation">
+                                <a href="{% url 'index_page' %}"
+                                        {% block home_active %}{% endblock %}>
+                                    Home
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="{% url 'bundesinfo:standings' %}" {% block standings_active %}{% endblock %}>
+                                    {% trans 'Standings' %}
+                                </a>
+                            </li>
                             <li role="presentation"><a href="">{% trans 'Schedule' %}</a></li>
                         </ul>
                     </div>
