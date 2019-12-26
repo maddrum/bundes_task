@@ -47,7 +47,12 @@
                                     {% trans 'Standings' %}
                                 </a>
                             </li>
-                            <li role="presentation"><a href="">{% trans 'Schedule' %}</a></li>
+                            <li role="presentation">
+                                <a href="{% url 'bundesinfo:next_round' %}"
+                                        {% block next_round_active %}{% endblock %}>
+                                    {% trans 'Schedule' %}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

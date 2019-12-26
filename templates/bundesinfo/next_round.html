@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% block next_round_active %}class="active"{% endblock %}
+
+{% block content %}
+    <div id="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb">
+                <li><a href="{% url 'index_page' %}">Home</a></li>
+                <li>{% trans 'Schedule' %}</li>
+            </div>
+        </div>
+    </div>
+    <div class="aboutus">
+        <div class="container" style="color: black">
+            <h3>{% trans 'Schedule' %}</h3>
+            <hr>
+            {% for item in matches %}
+                <div class="row">
+                    <div class="col-xs-5 text-center">
+                        <h4>
+                            <img src="{{ item.team1_logo }}" class="img-responsive center-block"
+                                 style="max-height: 50px;max-width: 50px">
+                        </h4>
+
+                        <h4>
+                            {{ item.team1 }}
+                        </h4>
+                    </div>
+                    <div class="col-xs-2 text-center">
+                        vs
+                    </div>
+                    <div class="col-xs-5 text-center">
+                        <h4>
+                            <img src="{{ item.team2_logo }}" class="img-responsive center-block"
+                                 style="max-height: 50px;max-width: 50px">
+                        </h4>
+                        <h4>
+                            {{ item.team2 }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h4>
+                            {{ item.time|localtime }}
+                        </h4>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
