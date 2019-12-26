@@ -115,8 +115,12 @@ DATETIME_FORMAT = 'l, d-M-Y  @ H:i'
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    STATIC_DIR,
 ]
+DJANGO_STATIC_FILES = os.path.join(STATIC_DIR, "#django_static_collect")
+STATIC_ROOT = DJANGO_STATIC_FILES
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
